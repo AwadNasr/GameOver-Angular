@@ -1,0 +1,14 @@
+<div>
+  <h3 class="text-muted fw-bold my-3">Personalized Recommendations </h3>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gy-4 gx-3">
+    <div class="col" *ngFor="let game of games" [routerLink]="['/gameDetails',game.id]">
+      <div class="card overflow-hidden bg-main">
+        <img [src]="game.thumbnail" alt="" class="w-100">
+        <div class="hstack justify-content-between">
+          <h4 class="text-muted p-3 my-2 fw-bold">{{game.title}}</h4>
+          <button class="btn btn-info text-white me-3">Free</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

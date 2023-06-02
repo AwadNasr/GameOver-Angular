@@ -1,0 +1,44 @@
+<div>
+  <div class="row gy-3 gx-4">
+    <div class="col-md-4">
+      <figure class="overflow-hidden rounded-3 ">
+        <img [src]="gameDetails?.thumbnail" class="w-100" alt="">
+      </figure>
+      <button class="btn btn-info text-white">Free</button>
+    </div>
+    <div class="col-md-8 text-muted">
+      <h3 class=" fw-bold display-5 my-3">{{gameDetails?.title}} </h3>
+      <h5 class="fw-bold my-2">About {{gameDetails?.title}}  </h5>
+      <p class="my-2">{{gameDetails?.description}}</p>
+      <h5 class="fw-bold mb-3">{{gameDetails?.title}} Screenshots   </h5>
+      <div class="overflow-hidden rounded-3 images">
+        <owl-carousel-o [options]="customOptions" class="mb-3">
+          <ng-template carouselSlide *ngFor="let img of images"><img [src]="img?.image" class="w-100" alt=""></ng-template>
+        </owl-carousel-o>
+      </div>
+      <h5 class="fw-bold mb-3">Additional Information</h5>
+      <table class="table  text-muted">
+        <tr class="">
+          <td>Title</td>
+          <td>Developer</td>
+          <td>Publisher</td>
+        </tr>
+        <tr class="text">
+          <td>{{gameDetails?.title}}</td>
+          <td>{{gameDetails?.developer}}</td>
+          <td>{{gameDetails?.publisher}}</td>
+        </tr>
+        <tr class="">
+          <td>Release Date</td>
+          <td>Genre</td>
+          <td>Platform</td>
+        </tr>
+        <tr class="text">
+          <td>{{gameDetails?.release_date}}</td>
+          <td>{{gameDetails?.genre}}</td>
+          <td>{{gameDetails?.platform}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div>
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 gy-3 gx-3">
+    <div class="col " *ngFor="let game of games" [routerLink]="['/gameDetails',game.id]">
+      <div class="card bg-main">
+        <figure class="card-img-top">
+          <img [src]="game?.thumbnail" class="img-thumbnail" alt="">
+        </figure>
+        <div class="hstack justify-content-between">
+          <h5 class="text-muted p-2 my-2 fw-bold">{{game?.title}}</h5>
+          <button class="btn btn-info text-white me-3">Free</button>
+        </div>
+        <span class="bg-secondary p-2 rounded-3 m-2 text-center ">{{game?.genre}}</span>
+        <h6 class="text-muted">{{game?.short_description.split(" ").slice(0,3).join(" ")}}</h6>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-info text-white w-100 my-4" (click)="increaseLength()">Get More</button>
+</div>

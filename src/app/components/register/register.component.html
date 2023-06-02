@@ -1,0 +1,69 @@
+<div class="w-75 mx-auto my-3 bg-main rounded-3 p-3">
+  <h3 class="text-main my-3">Register Now</h3>
+
+  <form class=" vstack gap-3" [formGroup]="registerForm" (ngSubmit)="hanndleRegister(registerForm)" >
+    <div class="form-floating">
+      <input type="text" placeholder=" " class="form-control" formControlName="name" [ngClass]="{
+        'is-valid': !name?.errors && name?.dirty,
+        'is-invalid': name?.errors && name?.dirty
+      }">
+      <label  class="text-main">Name </label>
+      <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+        <li *ngIf="name?.getError('required')">Name is required</li>
+        <li *ngIf="name?.getError('maxlength')">MaxLength is 10 characters</li>
+      </ul>
+    </div>
+    <div class="form-floating">
+      <input type="email" placeholder=" " class="form-control" formControlName="email" [ngClass]="{
+        'is-valid': !email?.errors && email?.dirty,
+        'is-invalid': email?.errors && email?.dirty
+      }">
+      <label  class="text-main">Email </label>
+      <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+        <li *ngIf="email?.getError('required')">Email is required</li>
+        <li *ngIf="email?.getError('email')">Must be email format</li>
+      </ul>
+    </div>
+
+
+
+    <div class="form-floating">
+      <input type="password" placeholder=" " class="form-control" formControlName="password" [ngClass]="{
+        'is-valid': !password?.errors && password?.dirty,
+        'is-invalid': password?.errors && password?.dirty
+      }">
+      <label  class="text-main">Password </label>
+      <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+        <li *ngIf="password?.getError('required')">Password is required</li>
+      </ul>
+    </div>
+
+    <div class="form-floating">
+      <input type="password" placeholder=" " class="form-control" formControlName="rePassword" [ngClass]="{
+        'is-valid': !rePassword?.errors && rePassword?.dirty,
+        'is-invalid': rePassword?.errors && rePassword?.dirty
+      }">
+      <label  class="text-main">Repassword </label>
+      <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+        <li *ngIf="rePassword?.getError('required')">Repassword is required</li>
+      </ul>
+    </div>
+
+
+    <div class="form-floating">
+      <input type="tel" placeholder=" " class="form-control" formControlName="phone" [ngClass]="{
+        'is-valid': !phone?.errors && phone?.dirty,
+        'is-invalid': phone?.errors && phone?.dirty
+      }">
+      <label  class="text-main">Phone </label>
+      <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+        <li *ngIf="phone?.getError('required')">phone is required</li>
+        <li *ngIf="phone?.getError('pattern')">Phone must be egyptian number</li>
+      </ul>
+    </div>
+    <span class="alert alert-danger p-2 my-2 d-block text-center" *ngIf="apiMsg">{{apiMsg}}</span>
+    <button type="submit" class="btn btn-info text-white" [disabled]="registerForm.invalid">Submit
+      <i class="fa-solid fa-spinner fa-spin" *ngIf="isLoading"></i>
+    </button>
+  </form>
+</div>

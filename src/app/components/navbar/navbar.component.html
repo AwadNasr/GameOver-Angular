@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-md shadow mb-5">
+  <div class="container">
+    <a class="navbar-brand" >
+      <img src="./assets/logo.png" class="" alt="">
+      <span class="text-white">Game Over</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" >
+          <a class="nav-link " aria-current="page" routerLink="home" routerLinkActive="text-white" >Home</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogin">
+          <a class="nav-link" routerLink="all" routerLinkActive="text-white" >All</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isLogin">
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false"  routerLinkActive="text-white">
+            Platforms
+          </a>
+          <ul class="dropdown-menu cursor-pointer">
+            <li><a class="dropdown-item" [routerLink]="['/platforms','pc']">pc</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/platforms','browser']">browser</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="isLogin">
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false"  routerLinkActive="text-white">
+            Sort-by
+          </a>
+          <ul class="dropdown-menu cursor-pointer">
+            <li><a class="dropdown-item" [routerLink]="['/sortBy','release-date']">release-date</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/sortBy','popularity']">popularity</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/sortBy','alphabetical']">alphabetical</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/sortBy','relevance']">relevance</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="isLogin">
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false"  routerLinkActive="text-white">
+            Categories
+          </a>
+          <ul class="dropdown-menu cursor-pointer">
+            <li><a class="dropdown-item" [routerLink]="['/category','racing']">racing</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','sports']">sports</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','social']">social</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','shooter']">shooter</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','open-world']">open-world</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','fantasy']">fantasy</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','zombie']">zombie</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','action-rpg']">action-rpg</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','action']">action</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','flight']">flight</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category','battle-royale']">battle-royale</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="list-unstyled d-flex">
+       <li>
+        <button class="btn" routerLink="login" *ngIf="!isLogin">Login</button>
+       </li>
+       <li>
+        <button class="btn " routerLink="register" *ngIf="!isLogin">Join Free</button>
+       </li>
+       <li>
+        <button class="btn " *ngIf="isLogin" (click)="logout()">Logout</button>
+       </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
